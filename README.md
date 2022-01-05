@@ -3,8 +3,7 @@ A Python3 package for receiving inputs from a Lego Mario/Luigi figure,
 The code is a slight modification of the script written by Bruno Hautzenberger that can be found here (https://github.com/salendron/pyLegoMario.git)
 
 # How to install
-to install you will want to type this command into your terminal or command prompt:
-`pip install legomario`
+as of now the package isn't on pip but I will upload it as soon as I finish tweaking it
 
 # How to use
 in your script you will want to start off by importing the modules needed like so:
