@@ -13,7 +13,7 @@ class Mario:
     def __init__(self):
         self._tileEventHooks = []
         self._accelerometerEventHooks = []
-        self._doLog = True
+        self._doLog = False
         self._run = True
 
     def _signed(self, char):
