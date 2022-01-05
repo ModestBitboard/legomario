@@ -36,3 +36,4 @@ now to connect lego mario:
 `loop.run_until_complete(mario.Run())`
 
 The finished code should look like this:
+[example1.py](https://github.com/ShadowFire5650/legomario/blob/main/legomario/example1.py)
