@@ -8,7 +8,7 @@ import os
 from .mario import *
 
 # fmt: off
-__project__ = 'lego_mario'
+__project__ = 'legomario'
 __version__ = '0.2.0'
 # fmt: on
 
