@@ -6,6 +6,9 @@ from bleak import BleakScanner, BleakClient
 LEGO_CHARACTERISTIC_UUID = "00001624-1212-efde-1623-785feabcd123"
 SUBSCRIBE_IMU_COMMAND = bytearray([0x0A, 0x00, 0x41, 0x00, 0x00, 0x05, 0x00, 0x00, 0x00, 0x01])
 SUBSCRIBE_RGB_COMMAND = bytearray([0x0A, 0x00, 0x41, 0x01, 0x00, 0x05, 0x00, 0x00, 0x00, 0x01])
+SUBSCRIBE_PANTS_COMMAND = bytearray([0x0A, 0x00, 0x41, 0x02, 0x00, 0x05, 0x00, 0x00, 0x00, 0x01])
+SUBSCRIBE_EVENT_COMMAND = bytearray([0x0A, 0x00, 0x41, 0x03, 0x00, 0x05, 0x00, 0x00, 0x00, 0x01])
+SUBSCRIBE_VOLT_COMMAND = bytearray([0x0A, 0x00, 0x41, 0x06, 0x00, 0x05, 0x00, 0x00, 0x00, 0x01])
 
 
 class Mario:
@@ -13,6 +16,7 @@ class Mario:
     def __init__(self):
         self._newTileEventHooks = []
         self._tileEventHooks = []
+        self._pantsEventHooks = []
         self._accelerometerEventHooks = []
         self._doLog = False
         self._run = True
@@ -85,6 +89,12 @@ class Mario:
                             await client.write_gatt_char(LEGO_CHARACTERISTIC_UUID, SUBSCRIBE_IMU_COMMAND)
                             await asyncio.sleep(0.1)
                             await client.write_gatt_char(LEGO_CHARACTERISTIC_UUID, SUBSCRIBE_RGB_COMMAND)
+                            await asyncio.sleep(0.1)
+                            await client.write_gatt_char(LEGO_CHARACTERISTIC_UUID, SUBSCRIBE_PANTS_COMMAND)
+                            await asyncio.sleep(0.1)
+                            await client.write_gatt_char(LEGO_CHARACTERISTIC_UUID, SUBSCRIBE_EVENT_COMMAND)
+                            await asyncio.sleep(0.1)
+                            await client.write_gatt_char(LEGO_CHARACTERISTIC_UUID, SUBSCRIBE_VOLT_COMMAND)
                             while await client.is_connected() and self._run:
                                 await asyncio.sleep(0.05)
                     except:
